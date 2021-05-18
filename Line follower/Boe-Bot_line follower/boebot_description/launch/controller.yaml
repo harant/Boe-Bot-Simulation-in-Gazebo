@@ -1,0 +1,15 @@
+boebot_controller:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Position Controllers --------------------------------------
+  rev_right_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: rev_right
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  rev_left_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: rev_left
+    pid: {p: 100.0, i: 0.01, d: 10.0}

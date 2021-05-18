@@ -1,0 +1,328 @@
+<?xml version="1.0" ?>
+<robot name="boebot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find boebot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find boebot_description)/urdf/boebot.trans" />
+<xacro:include filename="$(find boebot_description)/urdf/boebot.gazebo" />
+
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0070625612279852845 -6.874357865283451e-06 0.04574754124785928"/>
+    <mass value="0.20308165049164978"/>
+    <inertia ixx="0.000187" ixy="-0.0" ixz="-1e-06" iyy="0.000368" iyz="-0.0" izz="0.00051"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://boebot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://boebot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_right_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.019672257084668257 0.008154203088266192 -2.8105041564863154e-07"/>
+    <mass value="0.23215241019968272"/>
+    <inertia ixx="3.3e-05" ixy="1e-06" ixz="0.0" iyy="4e-05" iyz="0.0" izz="5.8e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0545 0.04 -0.032207"/>
+    <geometry>
+      <mesh filename="package://boebot_description/meshes/motor_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0545 0.04 -0.032207"/>
+    <geometry>
+      <mesh filename="package://boebot_description/meshes/motor_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_left_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.019672257084668195 -0.00815420308826622 -2.8105041564863154e-07"/>
+    <mass value="0.23215241019968264"/>
+    <inertia ixx="3.3e-05" ixy="-1e-06" ixz="0.0" iyy="4e-05" iyz="-0.0" izz="5.8e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0545 -0.04 -0.032207"/>
+    <geometry>
+      <mesh filename="package://boebot_description/meshes/motor_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0545 -0.04 -0.032207"/>
+    <geometry>
+      <mesh filename="package://boebot_description/meshes/motor_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="caster_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="3.9442278650103635e-07 0.013416407866003247 -2.4895176421041443e-07"/>
+    <mass value="0.07940850571968437"/>
+    <inertia ixx="6e-06" ixy="-0.0" ixz="0.0" iyy="6e-06" iyz="-0.0" izz="6e-06"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.063167 0.0135 -0.013506"/>
+    <geometry>
+      <mesh filename="package://boebot_description/meshes/caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.063167 0.0135 -0.013506"/>
+    <geometry>
+      <mesh filename="package://boebot_description/meshes/caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="arduino_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.03893013827845351 0.03468787507540039 0.004002916570544371"/>
+    <mass value="0.04221819460006796"/>
+    <inertia ixx="1.7e-05" ixy="-1e-06" ixz="-1e-06" iyy="3.8e-05" iyz="-0.0" izz="5.4e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0575 0.035 -0.075707"/>
+    <geometry>
+      <mesh filename="package://boebot_description/meshes/arduino_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0575 0.035 -0.075707"/>
+    <geometry>
+      <mesh filename="package://boebot_description/meshes/arduino_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="obstacle_sensor_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0014998834009434178 -2.6259291547496913e-07 -2.8105041563475375e-07"/>
+    <mass value="0.0005887499999999996"/>
+    <inertia ixx="0.0" ixy="0.0" ixz="-0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.057833 0.002449 -0.081207"/>
+    <geometry>
+      <mesh filename="package://boebot_description/meshes/obstacle_sensor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.057833 0.002449 -0.081207"/>
+    <geometry>
+      <mesh filename="package://boebot_description/meshes/obstacle_sensor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="obstacle_sensor_left">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0014998834009434178 -2.6259291547496913e-07 -2.8105041563475375e-07"/>
+    <mass value="0.0005887499999999996"/>
+    <inertia ixx="0.0" ixy="0.0" ixz="-0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.057833 0.002449 -0.081207"/>
+    <geometry>
+      <mesh filename="package://boebot_description/meshes/obstacle_sensor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.057833 0.002449 -0.081207"/>
+    <geometry>
+      <mesh filename="package://boebot_description/meshes/obstacle_sensor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="obstacle_sensor_right">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0014998834009434178 -2.6259291547496913e-07 -2.8105041563475375e-07"/>
+    <mass value="0.0005887499999999996"/>
+    <inertia ixx="0.0" ixy="0.0" ixz="-0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.057833 0.002449 -0.081207"/>
+    <geometry>
+      <mesh filename="package://boebot_description/meshes/obstacle_sensor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.057833 0.002449 -0.081207"/>
+    <geometry>
+      <mesh filename="package://boebot_description/meshes/obstacle_sensor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.001557194993891009 4.099625037096615e-13 -2.8105041563475375e-07"/>
+    <mass value="0.0014423114923478612"/>
+    <inertia ixx="0.0" ixy="0.0" ixz="-0.0" iyy="0.0" iyz="-0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.070763 0.0 -0.063207"/>
+    <geometry>
+      <mesh filename="package://boebot_description/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.070763 0.0 -0.063207"/>
+    <geometry>
+      <mesh filename="package://boebot_description/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_left_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="4.959898559711573e-07 -0.005543299964448488 -2.788678334572636e-07"/>
+    <mass value="0.08985319146989384"/>
+    <inertia ixx="2.7e-05" ixy="0.0" ixz="0.0" iyy="5.4e-05" iyz="0.0" izz="2.7e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.04638 0.0525 -0.032207"/>
+    <geometry>
+      <mesh filename="package://boebot_description/meshes/wheel_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.04638 0.0525 -0.032207"/>
+    <geometry>
+      <mesh filename="package://boebot_description/meshes/wheel_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_right_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="4.932761595438651e-07 0.005543351469859702 -2.8066909178031674e-07"/>
+    <mass value="0.08985616844400865"/>
+    <inertia ixx="2.7e-05" ixy="0.0" ixz="-0.0" iyy="5.4e-05" iyz="0.0" izz="2.7e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.04638 -0.0525 -0.032207"/>
+    <geometry>
+      <mesh filename="package://boebot_description/meshes/wheel_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.04638 -0.0525 -0.032207"/>
+    <geometry>
+      <mesh filename="package://boebot_description/meshes/wheel_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_circuit_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0012503999999999987 -6.277294225387258e-17 0.012499718949584362"/>
+    <mass value="0.012265624999999999"/>
+    <inertia ixx="1e-06" ixy="0.0" ixz="0.0" iyy="1e-06" iyz="-0.0" izz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.068263 0.0 -0.050707"/>
+    <geometry>
+      <mesh filename="package://boebot_description/meshes/camera_circuit_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.068263 0.0 -0.050707"/>
+    <geometry>
+      <mesh filename="package://boebot_description/meshes/camera_circuit_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rigid12" type="fixed">
+  <origin rpy="0 0 0" xyz="0.0545 -0.04 0.032207"/>
+  <parent link="base_link"/>
+  <child link="motor_right_1"/>
+</joint>
+
+<joint name="Rigid13" type="fixed">
+  <origin rpy="0 0 0" xyz="0.0545 0.04 0.032207"/>
+  <parent link="base_link"/>
+  <child link="motor_left_1"/>
+</joint>
+
+<joint name="Rigid14" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.063167 -0.0135 0.013506"/>
+  <parent link="base_link"/>
+  <child link="caster_1"/>
+</joint>
+
+<joint name="Rigid15" type="fixed">
+  <origin rpy="0 0 0" xyz="0.0575 -0.035 0.075707"/>
+  <parent link="base_link"/>
+  <child link="arduino_1"/>
+</joint>
+
+<joint name="Rigid16" type="fixed">
+  <origin rpy="0 0 0" xyz="0.000333 0.035051 0.0055"/>
+  <parent link="arduino_1"/>
+  <child link="obstacle_sensor_1"/>
+</joint>
+
+<joint name="Rigid26" type="fixed">
+  <origin rpy="0 0 0.628319" xyz="-0.014667 0.072551 0.0055"/>
+  <parent link="arduino_1"/>
+  <child link="obstacle_sensor_left"/>
+</joint>
+
+<joint name="Rigid36" type="fixed">
+  <origin rpy="0 0 -0.628319" xyz="-0.014667 -0.002449 0.0055"/>
+  <parent link="arduino_1"/>
+  <child link="obstacle_sensor_right"/>
+</joint>
+
+<joint name="Rigid17" type="fixed">
+  <origin rpy="0 0 0" xyz="0.0025 0.0 0.0125"/>
+  <parent link="camera_circuit_1"/>
+  <child link="camera_1"/>
+</joint>
+
+<joint name="rev_right" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.00812 -0.0125 0.0"/>
+  <parent link="motor_right_1"/>
+  <child link="wheel_left_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="rev_left" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.00812 0.0125 0.0"/>
+  <parent link="motor_left_1"/>
+  <child link="wheel_right_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rigid20" type="fixed">
+  <origin rpy="0 1.0472 0" xyz="0.068263 0.0 0.050707"/>
+  <parent link="base_link"/>
+  <child link="camera_circuit_1"/>
+</joint>
+
+</robot>
