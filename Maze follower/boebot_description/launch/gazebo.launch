@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+
+<launch>
+
+  <param command="$(find xacro)/xacro $(find boebot_description)/urdf/boebot.xacro" name="robot_description"/>
+
+  <node args="-param robot_description -urdf -model boebot -x -0.05" name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="paused" value="true"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+    <arg name="world_name" value="$(find boebot_description)/worlds/demoline.world"/>
+  </include>
+
+  <node pkg="boebot_description" type="readsensor.py" name="readsensor" output="screen"/>
+
+  <node pkg="boebot_description" type="linefollower.py" name="linefollower" output="screen"/>
+
+
+</launch>
